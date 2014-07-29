@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="row js-masonry">
+		<% @images.each do |image| %>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag(image.image, class: "img-thumbnail"), image.image.url%></div>
+		<% end %>
+	</div>
+</div>
+<script type="text/javascript">
+var container = document.querySelector('.container-fluid');
+var msnry = new Masonry( container, {
+  // options...
+  itemSelector: '.col-md-3',
+  columnWidth: 200
+});
+</script>
