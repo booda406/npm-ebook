@@ -64,6 +64,15 @@ class EpubController < ApplicationController
 		book.generate_epub(epubname)
 	end
 
+	def download_image
+		@name = params[:name]
+		send_file(
+		  "#{Rails.root}/app/assets/images/"+@name+".jpg",
+		  filename: @name,
+		  type: "image/jpeg"
+		)
+	end
+
 	private
 
 	def image_params

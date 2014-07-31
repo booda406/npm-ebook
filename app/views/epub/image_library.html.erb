@@ -1,27 +1,37 @@
+<style type="text/css">
+	.shade{
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}	
+</style>
 <div class="container-fluid">
+	<div class="row">
+		<div><%=image_tag("library_top.jpg", class: "col-md-12 col-sm-12 col-xs-12")%></div>
+	</div>
 	<div class="row js-masonry">
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image1.jpg",  class: "img-thumbnail"), "assets/image1.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image2.jpg",  class: "img-thumbnail"), "assets/image2.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image3.jpg",  class: "img-thumbnail"), "assets/image3.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image4.jpg",  class: "img-thumbnail"), "assets/image4.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image5.jpg",  class: "img-thumbnail"), "assets/image5.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image6.jpg",  class: "img-thumbnail"), "assets/image6.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image7.jpg",  class: "img-thumbnail"), "assets/image7.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image8.jpg",  class: "img-thumbnail"), "assets/image8.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image9.jpg",  class: "img-thumbnail"), "assets/image9.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image10.jpg",  class: "img-thumbnail"), "assets/image10.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image11.jpg",  class: "img-thumbnail"), "assets/image11.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image12.jpg",  class: "img-thumbnail"), "assets/image12.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image13.jpg",  class: "img-thumbnail"), "assets/image13.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image14.jpg",  class: "img-thumbnail"), "assets/image14.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image15.jpg",  class: "img-thumbnail"), "assets/image15.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image16.jpg",  class: "img-thumbnail"), "assets/image16.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image17.jpg",  class: "img-thumbnail"), "assets/image17.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image18.jpg",  class: "img-thumbnail"), "assets/image18.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image19.jpg",  class: "img-thumbnail"), "assets/image19.jpg" %></div>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image20.jpg",  class: "img-thumbnail"), "assets/image20.jpg" %></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image1.jpg",  class: "img-thumbnail"), "assets/image1.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image1") %></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image2.jpg",  class: "img-thumbnail"), "assets/image2.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image3.jpg",  class: "img-thumbnail"), "assets/image3.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image4.jpg",  class: "img-thumbnail"), "assets/image4.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image5.jpg",  class: "img-thumbnail"), "assets/image5.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image6.jpg",  class: "img-thumbnail"), "assets/image6.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image7.jpg",  class: "img-thumbnail"), "assets/image7.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image8.jpg",  class: "img-thumbnail"), "assets/image8.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image9.jpg",  class: "img-thumbnail"), "assets/image9.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image10.jpg",  class: "img-thumbnail"), "assets/image10.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image11.jpg",  class: "img-thumbnail"), "assets/image11.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image12.jpg",  class: "img-thumbnail"), "assets/image12.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image13.jpg",  class: "img-thumbnail"), "assets/image13.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image14.jpg",  class: "img-thumbnail"), "assets/image14.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image15.jpg",  class: "img-thumbnail"), "assets/image15.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image16.jpg",  class: "img-thumbnail"), "assets/image16.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image17.jpg",  class: "img-thumbnail"), "assets/image17.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image18.jpg",  class: "img-thumbnail"), "assets/image18.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image19.jpg",  class: "img-thumbnail"), "assets/image19.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag("image20.jpg",  class: "img-thumbnail"), "assets/image20.jpg" %><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
 		<% @images.each do |image| %>
-		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag(image.image, class: "img-thumbnail"), image.image.url%></div>
+		<div class="col-md-3 col-sm-3 col-xs-5"><%= link_to image_tag(image.image, class: "img-thumbnail"), image.image.url%><%=image_tag("download_button.jpg", class: "img-thumbnail shade")%></div>
 		<% end %>
 	</div>
 </div>

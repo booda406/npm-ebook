@@ -15,7 +15,7 @@ GepubTest::Application.routes.draw do
   get 'image_library' => 'epub#image_library', as: :image_library
   get 'image_new' => 'epub#image_new', as: :image_new
   post 'image_new' => 'epub#image_create'
-
+  get 'download_image' => 'epub#download_image', as: :download_image
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
