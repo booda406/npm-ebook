@@ -71,6 +71,7 @@ class EpubController < ApplicationController
 		  filename: @name,
 		  type: "image/jpeg"
 		)
+		redirect_to image_library_path
 	end
 
 	private
