@@ -70,8 +70,8 @@ class EpubController < ApplicationController
 		  "#{Rails.root}/app/assets/images/"+@name+".jpg",
 		  filename: @name,
 		  type: "image/jpeg"
-		)
-		redirect_to image_library_path
+		) and return
+
 	end
 
 	private
