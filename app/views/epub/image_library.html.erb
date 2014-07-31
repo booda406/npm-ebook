@@ -9,7 +9,7 @@
 	<div class="row">
 		<div><%=image_tag("library_top.jpg", class: "col-md-12 col-sm-12 col-xs-12")%></div>
 	</div>
-	<div class="row js-masonry">
+	<div class="row js-masonry" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
 		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image1.jpg",  class: "img-thumbnail"), "assets/image1.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image1") %></div>
 		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image2.jpg",  class: "img-thumbnail"), "assets/image2.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image2") %></div>
 		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image3.jpg",  class: "img-thumbnail"), "assets/image3.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image3") %></div>
