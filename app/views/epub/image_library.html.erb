@@ -9,33 +9,66 @@
 	<div class="row">
 		<div><%=image_tag("library_top.jpg", class: "col-md-12 col-sm-12 col-xs-12")%></div>
 	</div>
-	<div class="row js-masonry" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image1.jpg",  class: "img-thumbnail"), "assets/image1.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image1") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image2.jpg",  class: "img-thumbnail"), "assets/image2.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image2") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image3.jpg",  class: "img-thumbnail"), "assets/image3.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image3") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image4.jpg",  class: "img-thumbnail"), "assets/image4.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image4") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image5.jpg",  class: "img-thumbnail"), "assets/image5.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image5") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image6.jpg",  class: "img-thumbnail"), "assets/image6.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image6") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image7.jpg",  class: "img-thumbnail"), "assets/image7.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image7") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image8.jpg",  class: "img-thumbnail"), "assets/image8.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image8") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image9.jpg",  class: "img-thumbnail"), "assets/image9.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image9") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image10.jpg",  class: "img-thumbnail"), "assets/image10.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image10") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image11.jpg",  class: "img-thumbnail"), "assets/image11.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image11") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image12.jpg",  class: "img-thumbnail"), "assets/image12.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image12") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image13.jpg",  class: "img-thumbnail"), "assets/image13.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image13") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image14.jpg",  class: "img-thumbnail"), "assets/image14.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image14") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image15.jpg",  class: "img-thumbnail"), "assets/image15.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image15") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image16.jpg",  class: "img-thumbnail"), "assets/image16.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image16") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image17.jpg",  class: "img-thumbnail"), "assets/image17.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image17") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image18.jpg",  class: "img-thumbnail"), "assets/image18.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image18") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image19.jpg",  class: "img-thumbnail"), "assets/image19.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image19") %></div>
-		<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image20.jpg",  class: "img-thumbnail"), "assets/image20.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image20") %></div>
+	<div class="row">
+		<ul class="nav nav-tabs" role="tablist">
+		  <li class="active col-md-2 col-sm-2 col-xs-2"><a href="#hole" role="tab" data-toggle="tab">時空洞</a></li>
+		  <li class="col-md-2 col-sm-2 col-xs-2"><a href="#view" role="tab" data-toggle="tab">乾隆的奇異山水</a></li>
+		  <li class="col-md-2 col-sm-2 col-xs-2"><a href="#celebration" role="tab" data-toggle="tab">乾隆的春曉慶典</a></li>
+		  <li class="col-md-2 col-sm-2 col-xs-2"><a href="#universe" role="tab" data-toggle="tab">乾隆的小宇宙</a></li>
+		  <li class="col-md-2 col-sm-2 col-xs-2"><a href="#ten" role="tab" data-toggle="tab">十全乾隆</a></li>
+		  <li class="col-md-2 col-sm-2 col-xs-2"><a href="#everybody" role="tab" data-toggle="tab">人人都是乾隆</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="tab-content">
+		  <div class="tab-pane active" id="hole" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image1.jpg",  class: "img-thumbnail"), "assets/image1.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image1") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image2.jpg",  class: "img-thumbnail"), "assets/image2.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image2") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image3.jpg",  class: "img-thumbnail"), "assets/image3.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image3") %></div>
+		  </div>
+		  <div class="tab-pane js-masonry" data-masonry-options='{ "itemSelector": ".col-md-3", "columnWidth": 100 }' id="view" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+		  	<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image4.jpg",  class: "img-thumbnail"), "assets/image4.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image4") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image5.jpg",  class: "img-thumbnail"), "assets/image5.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image5") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image6.jpg",  class: "img-thumbnail"), "assets/image6.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image6") %></div>
+
+		  </div>
+		  <div class="tab-pane js-masonry" data-masonry-options='{ "itemSelector": ".col-md-3", "columnWidth": 100 }' id="celebration" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+		  	<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image7.jpg",  class: "img-thumbnail"), "assets/image7.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image7") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image8.jpg",  class: "img-thumbnail"), "assets/image8.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image8") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image9.jpg",  class: "img-thumbnail"), "assets/image9.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image9") %></div>
+
+		  </div>
+		  <div class="tab-pane js-masonry" data-masonry-options='{ "itemSelector": ".col-md-3", "columnWidth": 100 }' id="universe" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+		  	<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image10.jpg",  class: "img-thumbnail"), "assets/image10.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image10") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image11.jpg",  class: "img-thumbnail"), "assets/image11.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image11") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image12.jpg",  class: "img-thumbnail"), "assets/image12.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image12") %></div>
+
+		  </div>
+		  <div class="tab-pane js-masonry" data-masonry-options='{ "itemSelector": ".col-md-3", "columnWidth": 100 }' id="ten" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+		  	<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image13.jpg",  class: "img-thumbnail"), "assets/image13.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image13") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image14.jpg",  class: "img-thumbnail"), "assets/image14.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image14") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image15.jpg",  class: "img-thumbnail"), "assets/image15.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image15") %></div>
+
+		  </div>
+		  <div class="tab-pane js-masonry" data-masonry-options='{ "itemSelector": ".col-md-3", "columnWidth": 100 }' id="everybody" style="background-image:url(<%="assets/library_background.jpg"%>);background-repeat:space">
+		  	<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image16.jpg",  class: "img-thumbnail"), "assets/image16.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image16") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image17.jpg",  class: "img-thumbnail"), "assets/image17.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image17") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image18.jpg",  class: "img-thumbnail"), "assets/image18.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image18") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image19.jpg",  class: "img-thumbnail"), "assets/image19.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image19") %></div>
+			<div class="col-md-3 col-sm-3 col-xs-6"><%= link_to image_tag("image20.jpg",  class: "img-thumbnail"), "assets/image20.jpg" %><%= link_to image_tag("download_button.jpg", class: "img-thumbnail shade"), download_image_path(name: "image20") %></div>
+
+		  </div>
+		</div>
 	</div>
 </div>
-<script type="text/javascript">
-var container = document.querySelector('.container-fluid');
-var msnry = new Masonry( container, {
-  // options...
-  itemSelector: '.col-md-3',
+<script>
+
+$('a[data-toggle=tab]').on('shown.bs.tab', function (e) {
+    $(window).trigger("resize");
 });
+$(window).resize(function(){
+    $this = $('.tab-pane');
+    $coloumn = $this.width() / 4;
+    $this.masonry({ columnWidth: $coloumn, gutter: 0, itemSelector: '.col-md-3' });               
+}); 
 </script>
