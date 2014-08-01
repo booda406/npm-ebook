@@ -8,13 +8,18 @@ GepubTest::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get 'ebook' => 'application#ebook_test'
+  # 產生epub檔案
+  get 'ebook' => 'epub#generate_ebook'
 
+  # 觀看epub檔案
   get 'epub' => 'epub#index'
 
+  # 素材庫
   get 'image_library' => 'epub#image_library', as: :image_library
+  # upload image (棄用)
   get 'image_new' => 'epub#image_new', as: :image_new
   post 'image_new' => 'epub#image_create'
+  # 下載素材褲圖片
   get 'download_image' => 'epub#download_image', as: :download_image
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
