@@ -1,7 +1,7 @@
 class EpubController < ApplicationController
 
 	def index
-		
+		@word = params[:word] if params[:word].present?		
 	end
 
 	def image_library
