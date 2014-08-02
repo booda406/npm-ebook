@@ -1,28 +1,19 @@
-== README
+專題計劃ebook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+專題筆記：
+	電子書管理相當複雜
+	並且分有章節
+	因此
+	究竟是否需要在雲端上編輯
+	需要分多章節或是全部為一章節
+	或者乾脆將雲端轉為電子書分享
+	本地端強大編輯sigil
+	持續測試ckeditor所能達到的地方
 
-Things you may want to cover:
+	LIFE看見人生攝影展
+	展後有一區 透過kinect製作與影展中照片的合照 透過手機掃描ＱRcode分享相片
 
-* Ruby version
+支援EPUB二
+EPUB二只支援到xhtml 1.1 很多tag並不支援
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+EPUB三由於目前尚未成熟
