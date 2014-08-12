@@ -62,6 +62,7 @@ class EpubController < ApplicationController
 		}
 		epubname = File.join(File.dirname(__FILE__), '故宮.epub')
 		book.generate_epub(epubname)
+		send_file("#{Rails.root}/app/controllers/故宮.epub")
 	end
 
 	def download_image
