@@ -19,6 +19,9 @@ GepubTest::Application.routes.draw do
   # 觀看epub檔案
   get 'epub' => 'epub#index'
 
+  # parse Epub
+  get 'parse' => 'epub#parse_epub'
+
   # 素材庫
   get 'image_library' => 'epub#image_library', as: :image_library
   # upload image (棄用)

@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # for epub
 gem 'gepub'
+# gem 'epub-parser'
 # for image upload
 gem 'carrierwave'
 # for boostrap

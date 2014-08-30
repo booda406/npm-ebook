@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookID">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:language>en</dc:language>
+    <dc:identifier id="BookID">http:/example.jp/bookid_in_url</dc:identifier>
+    <meta property="identifier-type" refines="#BookID">URL</meta>
+    <dc:title id="title1">故宮測試</dc:title>
+    <meta property="title-type" refines="#title1">main</meta>
+    <dc:title id="title2">我只為了測試</dc:title>
+    <meta property="title-type" refines="#title2">subtitle</meta>
+    <dc:creator id="creator1">Steven</dc:creator>
+    <meta property="role" refines="#creator1">aut</meta>
+    <dc:contributor>Robert</dc:contributor>
+    <dc:contributor>Peter</dc:contributor>
+    <dc:date>2014-08-28T19:10:25Z</dc:date>
+    <meta property="dcterms:modified">2014-08-28T19:10:25Z</meta>
+    <meta name="cover" content="item_image11"/>
+  </metadata>
+  <manifest>
+    <item id="item_image1" href="img/image1.jpg" media-type="image/jpeg"/>
+    <item id="item_image10" href="img/image10.jpg" media-type="image/jpeg"/>
+    <item id="item_image2" href="img/image2.jpg" media-type="image/jpeg"/>
+    <item id="item_image3" href="img/image3.jpg" media-type="image/jpeg"/>
+    <item id="item_image4" href="img/image4.jpg" media-type="image/jpeg"/>
+    <item id="item_image5" href="img/image5.jpg" media-type="image/jpeg"/>
+    <item id="item_image6" href="img/image6.jpg" media-type="image/jpeg"/>
+    <item id="item_image7" href="img/image7.jpg" media-type="image/jpeg"/>
+    <item id="item_image8" href="img/image8.jpg" media-type="image/jpeg"/>
+    <item id="item_image9" href="img/image9.jpg" media-type="image/jpeg"/>
+    <item id="item_image11" href="img/image1.jpg" media-type="image/jpeg" properties="cover-image"/>
+    <item id="item_stylesheet" href="css/stylesheet.css" media-type="text/css"/>
+    <item id="item_OCRAStd" href="fonts/OCRAStd.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneral" href="fonts/STIXGeneral.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralBol" href="fonts/STIXGeneralBol.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralBolIta" href="fonts/STIXGeneralBolIta.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralItalic" href="fonts/STIXGeneralItalic.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_toc" href="text/toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="item_chap1" href="text/chap1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_chap1-1" href="text/chap1-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_chap2" href="text/chap2.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="item_chap1"/>
+    <itemref idref="item_chap1-1"/>
+    <itemref idref="item_chap2"/>
+  </spine>
+</package>

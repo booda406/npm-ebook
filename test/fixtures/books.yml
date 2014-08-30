@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  index_word: MyString
+  index_image: MyString
+  second_weather: MyString
+  second_mood: MyString
+  second_friend: MyString
+  together_photo: MyString
+  creator: MyString
+  last_image: MyString
+
+two:
+  index_word: MyString
+  index_image: MyString
+  second_weather: MyString
+  second_mood: MyString
+  second_friend: MyString
+  together_photo: MyString
+  creator: MyString
+  last_image: MyString
