@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20140830061137) do
   end
 
   create_table "pages", force: true do |t|
+    t.string   "title"
     t.string   "word"
     t.string   "image"
+    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

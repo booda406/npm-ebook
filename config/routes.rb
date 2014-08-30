@@ -13,6 +13,10 @@ GepubTest::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  # 產生book model
+  get 'books/new' => 'epub#book_new'
+  post 'books' => 'epub#book_create'
+
   # 產生epub檔案
   get 'ebook' => 'epub#generate_ebook'
 
@@ -24,9 +28,11 @@ GepubTest::Application.routes.draw do
 
   # 素材庫
   get 'image_library' => 'epub#image_library', as: :image_library
+
   # upload image (棄用)
   get 'image_new' => 'epub#image_new', as: :image_new
   post 'image_new' => 'epub#image_create'
+
   # 下載素材褲圖片
   get 'download_image' => 'epub#download_image', as: :download_image
 

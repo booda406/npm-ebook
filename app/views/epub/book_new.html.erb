@@ -1,0 +1,21 @@
+<%= simple_form_for(@book, :url => "/books", :html => { class: 'form-horizontal col-md-4' }) do |f| %>
+	<%= f.input :index_word, input_html: { :class => "form-control" } %>
+	<%= f.input :index_image, input_html: { :class => 'form-control' } %>
+	<%= f.input :second_weather, input_html: { :class => 'form-control' } %>
+	<%= f.input :second_mood, input_html: { :class => 'form-control' } %>
+	<%= f.input :second_friend, input_html: { :class => 'form-control' } %>
+
+	<%= f.simple_fields_for :pages do |page_form| %>
+		<%= render 'page_fields', :f => page_form %>
+	<% end %>	
+	<div class="links">
+		<%= link_to_add_association '增加頁面', f, :pages, {class: 'btn btn-primary pull-right'} %>
+	</div>
+	
+
+	<%= f.input :together_photo, input_html: { :class => 'form-control' } %>
+	<%= f.input :creator, input_html: { :class => 'form-control' } %>
+	<%= f.input :last_image, input_html: { :class => 'form-control' } %>
+
+	<%= f.submit %>
+<% end %>

@@ -25,9 +25,15 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # for epub
 gem 'gepub'
+
 # gem 'epub-parser'
+
+# easy handle nested forms
+gem 'cocoon', '~> 1.2'
+
 # for image upload
 gem 'carrierwave'
+
 # for boostrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
