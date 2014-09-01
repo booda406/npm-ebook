@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookID">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:language>en</dc:language>
+    <dc:identifier id="BookID">http:/example.jp/bookid_in_url</dc:identifier>
+    <meta property="identifier-type" refines="#BookID">URL</meta>
+    <dc:title id="title1">哇哩勒測試事</dc:title>
+    <meta property="title-type" refines="#title1">main</meta>
+    <dc:title id="title2">我只為了測試</dc:title>
+    <meta property="title-type" refines="#title2">subtitle</meta>
+    <dc:creator id="creator1">作者山人曾</dc:creator>
+    <meta property="role" refines="#creator1">aut</meta>
+    <dc:contributor>今天沒朋友</dc:contributor>
+    <dc:date>2014-08-30T16:44:52Z</dc:date>
+    <meta property="dcterms:modified">2014-08-30T16:44:52Z</meta>
+    <meta name="cover" content="item_Screen_Shot_2014-05-13_at_5.40.07_PM"/>
+  </metadata>
+  <manifest>
+    <item id="item_Screen_Shot_2014-05-13_at_5.40.07_PM" href="public//uploads/book/index_image/22/Screen_Shot_2014-05-13_at_5.40.07_PM.png" media-type="image/png" properties="cover-image"/>
+    <item id="item_stylesheet" href="app/controllers/css/stylesheet.css" media-type="text/css"/>
+    <item id="item_OCRAStd" href="app/controllers/fonts/OCRAStd.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneral" href="app/controllers/fonts/STIXGeneral.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralBol" href="app/controllers/fonts/STIXGeneralBol.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralBolIta" href="app/controllers/fonts/STIXGeneralBolIta.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_STIXGeneralItalic" href="app/controllers/fonts/STIXGeneralItalic.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_Screen_Shot_2014-08-14_at_11.55.22_AM" href="public//uploads/page/image/7/Screen_Shot_2014-08-14_at_11.55.22_AM.png" media-type="image/png"/>
+    <item id="item_Screen_Shot_2014-06-14_at_8.54.53_PM" href="public//uploads/page/image/8/Screen_Shot_2014-06-14_at_8.54.53_PM.png" media-type="image/png"/>
+    <item id="item_Screen_Shot_2014-05-22_at_11.40.55_PM" href="public/uploads/book/together_photo/22/Screen_Shot_2014-05-22_at_11.40.55_PM.png" media-type="image/png"/>
+    <item id="item_Screen_Shot_2014-06-16_at_2.48.04_AM" href="public/uploads/book/last_image/22/Screen_Shot_2014-06-16_at_2.48.04_AM.png" media-type="image/png"/>
+    <item id="item_second" href="second.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_chap0" href="chap0.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_chap1" href="chap1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_together_photo" href="together_photo.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_last_image" href="last_image.xhtml" media-type="application/xhtml+xml"/>
+    <item id="item_chap2-1" href="app/controllers/text/chap2-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="nav" href="nav.html" media-type="application/xhtml+xml" properties="nav"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="item_second"/>
+    <itemref idref="item_chap0"/>
+    <itemref idref="item_chap1"/>
+    <itemref idref="item_together_photo"/>
+    <itemref idref="item_last_image"/>
+    <itemref idref="item_chap2-1"/>
+  </spine>
+</package>
