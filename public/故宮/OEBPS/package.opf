@@ -4,29 +4,29 @@
     <dc:language>en</dc:language>
     <dc:identifier id="BookID">http:/example.jp/bookid_in_url</dc:identifier>
     <meta property="identifier-type" refines="#BookID">URL</meta>
-    <dc:title id="title1">哇哩勒測試事</dc:title>
+    <dc:title id="title1">testttt</dc:title>
     <meta property="title-type" refines="#title1">main</meta>
     <dc:title id="title2">我只為了測試</dc:title>
     <meta property="title-type" refines="#title2">subtitle</meta>
-    <dc:creator id="creator1">作者山人曾</dc:creator>
+    <dc:creator id="creator1">creatttttttttor</dc:creator>
     <meta property="role" refines="#creator1">aut</meta>
-    <dc:contributor>今天沒朋友</dc:contributor>
-    <dc:date>2014-08-30T16:44:52Z</dc:date>
-    <meta property="dcterms:modified">2014-08-30T16:44:52Z</meta>
-    <meta name="cover" content="item_Screen_Shot_2014-05-13_at_5.40.07_PM"/>
+    <dc:contributor>friiiiiiiiend</dc:contributor>
+    <dc:date>2014-09-01T08:05:21Z</dc:date>
+    <meta property="dcterms:modified">2014-09-01T08:05:21Z</meta>
+    <meta name="cover" content="item_Screen_Shot_2014-08-14_at_11.55.29_AM"/>
   </metadata>
   <manifest>
-    <item id="item_Screen_Shot_2014-05-13_at_5.40.07_PM" href="public//uploads/book/index_image/22/Screen_Shot_2014-05-13_at_5.40.07_PM.png" media-type="image/png" properties="cover-image"/>
+    <item id="item_Screen_Shot_2014-08-14_at_11.55.29_AM" href="public//uploads/book/index_image/6/Screen_Shot_2014-08-14_at_11.55.29_AM.png" media-type="image/png" properties="cover-image"/>
     <item id="item_stylesheet" href="app/controllers/css/stylesheet.css" media-type="text/css"/>
+    <item id="item_STIXGeneralBol" href="app/controllers/fonts/STIXGeneralBol.otf" media-type="application/vnd.ms-opentype"/>
     <item id="item_OCRAStd" href="app/controllers/fonts/OCRAStd.otf" media-type="application/vnd.ms-opentype"/>
     <item id="item_STIXGeneral" href="app/controllers/fonts/STIXGeneral.otf" media-type="application/vnd.ms-opentype"/>
-    <item id="item_STIXGeneralBol" href="app/controllers/fonts/STIXGeneralBol.otf" media-type="application/vnd.ms-opentype"/>
-    <item id="item_STIXGeneralBolIta" href="app/controllers/fonts/STIXGeneralBolIta.otf" media-type="application/vnd.ms-opentype"/>
     <item id="item_STIXGeneralItalic" href="app/controllers/fonts/STIXGeneralItalic.otf" media-type="application/vnd.ms-opentype"/>
-    <item id="item_Screen_Shot_2014-08-14_at_11.55.22_AM" href="public//uploads/page/image/7/Screen_Shot_2014-08-14_at_11.55.22_AM.png" media-type="image/png"/>
-    <item id="item_Screen_Shot_2014-06-14_at_8.54.53_PM" href="public//uploads/page/image/8/Screen_Shot_2014-06-14_at_8.54.53_PM.png" media-type="image/png"/>
-    <item id="item_Screen_Shot_2014-05-22_at_11.40.55_PM" href="public/uploads/book/together_photo/22/Screen_Shot_2014-05-22_at_11.40.55_PM.png" media-type="image/png"/>
-    <item id="item_Screen_Shot_2014-06-16_at_2.48.04_AM" href="public/uploads/book/last_image/22/Screen_Shot_2014-06-16_at_2.48.04_AM.png" media-type="image/png"/>
+    <item id="item_STIXGeneralBolIta" href="app/controllers/fonts/STIXGeneralBolIta.otf" media-type="application/vnd.ms-opentype"/>
+    <item id="item_Screen_Shot_2014-06-20_at_11.45.04_PM" href="public//uploads/page/image/1/Screen_Shot_2014-06-20_at_11.45.04_PM.png" media-type="image/png"/>
+    <item id="item_Screen_Shot_2014-05-13_at_5.40.07_PM" href="public//uploads/page/image/2/Screen_Shot_2014-05-13_at_5.40.07_PM.png" media-type="image/png"/>
+    <item id="item_computer_broken" href="public/uploads/book/together_photo/6/computer_broken.jpg" media-type="image/jpeg"/>
+    <item id="item_Screen_Shot_2014-06-15_at_11.20.42_PM" href="public/uploads/book/last_image/6/Screen_Shot_2014-06-15_at_11.20.42_PM.png" media-type="image/png"/>
     <item id="item_second" href="second.xhtml" media-type="application/xhtml+xml"/>
     <item id="item_chap0" href="chap0.xhtml" media-type="application/xhtml+xml"/>
     <item id="item_chap1" href="chap1.xhtml" media-type="application/xhtml+xml"/>
