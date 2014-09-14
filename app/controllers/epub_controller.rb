@@ -135,7 +135,11 @@ class EpubController < ApplicationController
    			}
    		}
 
-   		redirect_to books_show_path(@book.id)
+   		respond_to do |format|
+	      format.html { redirect_to books_show_path(@book.id) }
+	      format.json { render json: @book.id }
+    	end
+
 	end
 
 	def book_show
