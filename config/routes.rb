@@ -19,7 +19,7 @@ GepubTest::Application.routes.draw do
   get 'books/:id/show' => 'epub#book_show', as: :books_show
 
   # 產生epub檔案
-  get 'ebook/:id' => 'epub#generate_ebook'
+  get 'ebook/:id' => 'epub#generate_ebook', as: :ebook
 
   # 觀看epub檔案
   get 'epub' => 'epub#index'
