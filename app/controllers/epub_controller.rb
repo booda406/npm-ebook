@@ -144,6 +144,7 @@ class EpubController < ApplicationController
 	end
 
 	def generate_ebook
+		@book = Book.find(params[:id]) || Book.last
 		# builder = GEPUB::Builder.new {
 		#   language 'en'
 		#   unique_identifier 'http:/example.jp/bookid_in_url', 'BookID', 'URL'
@@ -177,7 +178,7 @@ class EpubController < ApplicationController
 		# }
 		# epubname = File.join("#{Rails.root}/public", '故宮.epub')
 		# builder.generate_epub(epubname)
-		send_file("#{Rails.root}/public/故宮.epub")
+		send_file("#{Rails.root}/public/故宮"+@book.id.to_s+".epub")
 	end
 
 	def download_image
