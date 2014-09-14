@@ -139,8 +139,8 @@ class EpubController < ApplicationController
 	end
 
 	def book_show
-		render layout: false
 		@book = Book.find(params[:id])
+		render layout: false
 	end
 
 	def generate_ebook
