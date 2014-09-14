@@ -16,6 +16,7 @@ GepubTest::Application.routes.draw do
   # 產生book model
   get 'books/new' => 'epub#book_new'
   post 'books' => 'epub#book_create'
+  get 'books/:id/show' => 'epub#book_show', as: :books_show
 
   # 產生epub檔案
   get 'ebook' => 'epub#generate_ebook'

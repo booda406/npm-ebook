@@ -121,9 +121,26 @@ class EpubController < ApplicationController
 		    }
 		  }
 		}
-		epubname = File.join("#{Rails.root}/public", '故宮.epub')
+		epubname = File.join("#{Rails.root}/public", '故宮'+@book.id.to_s+'.epub')
 		builder.generate_epub(epubname)
-		send_file("#{Rails.root}/public/故宮.epub")
+		# send_file("#{Rails.root}/public/故宮.epub")
+		path = "#{Rails.root}/public/故宮"+@book.id.to_s+".epub"
+		logger.debug "pathhhhh #{path}"
+		Zip::File.open(path) { |zip_file|
+			logger.debug "fiiiiiiiiiiiile #{zip_file.to_s.split('/')[-1]}"
+     		zip_file.each { |f|
+     			f_path=File.join("#{Rails.root}/public/故宮"+@book.id.to_s, f.name)
+     			FileUtils.mkdir_p(File.dirname(f_path))
+     			zip_file.extract(f, f_path) unless File.exist?(f_path)
+   			}
+   		}
+
+   		redirect_to books_show_path(@book.id)
+	end
+
+	def book_show
+		render layout: false
+		@book = Book.find(params[:id])
 	end
 
 	def generate_ebook

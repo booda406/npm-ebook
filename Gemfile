@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # for epub
 gem 'gepub'
+gem 'rubyzip'
 
 # gem 'epub-parser'
 
