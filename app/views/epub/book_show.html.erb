@@ -28,19 +28,36 @@
         
          <script>
             "use strict";
+            // var Book = ePub("/moby-dick/", {
+            //   spreads : true,
+            //   fixedLayout : false, //-- Will turn off pagination
+            //   version : 1,
+            // });
             
             var Book = ePub("/故宮"+<%=params[:id]%>+"/", {
               spreads : true,
               fixedLayout : false, //-- Will turn off pagination
               version : 1,
             });
-
         </script>
     </head>
     <%= link_to "素材庫", image_library_path %>
     <%= link_to "下載Epub", ebook_path(@book.id) %>
         <center><h2><%=@book.index_word%></h2></center>
-        <div id="main">
+        <div id="editor_mode" style="display:none">
+          <form method="post">
+            <p>
+              編輯內容:<br />
+                <textarea id="editor1" name="editor1"></textarea>
+            </p>
+            <p>
+              <input type="submit" value="儲存" />
+              <a href="#" onclick="location.reload()">取消</a>
+            </p>
+          </form>
+        </div>
+         <div id="main">
+          <br/><button onclick="Edit_mode();">編輯此頁</button>
           <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
           <div id="wrapper">
             <div id="area"></div>
@@ -49,22 +66,22 @@
           <select id="toc" onchange="gotopage()"></select>
         </div>
 <script type="text/javascript">
-            Book.getToc().then(function(toc){
+    Book.getToc().then(function(toc){
 
-              var $select = document.getElementById("toc"),
-                  docfrag = document.createDocumentFragment();
+      var $select = document.getElementById("toc"),
+          docfrag = document.createDocumentFragment();
 
-              toc.forEach(function(chapter) {
-                var option = document.createElement("option");
-                option.textContent = chapter.label;
-                option.ref = chapter.href;
+      toc.forEach(function(chapter) {
+        var option = document.createElement("option");
+        option.textContent = chapter.label;
+        option.ref = chapter.href;
 
-                docfrag.appendChild(option);
-              });
+        docfrag.appendChild(option);
+      });
 
-              $select.appendChild(docfrag);
+      $select.appendChild(docfrag);
 
-            });
+    });
     function gotopage(){
           console.log("hi")
           var index = document.getElementById("toc").selectedIndex,
@@ -73,4 +90,61 @@
           return false;
     }
     Book.renderTo("area");
+
+    function Edit_mode(){
+      $('#editor_mode').show();
+      $('#main').hide();
+      var xmlhttp;
+      if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          document.getElementById("editor1").innerHTML=xmlhttp.responseText;
+          // console.log(document.getElementById("editor1").innerHTML);
+          // console.log(xmlhttp);
+          }
+      }
+      xmlhttp.open("GET",Book.currentChapter.absolute,true);
+      // console.log(Book.currentChapter.absolute);
+      xmlhttp.send();
+
+
+      CKEDITOR.config.toolbar = [
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+        '/',
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+        { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar' ] },
+        '/',
+        { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+        { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+        { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+        { name: 'others', items: [ '-' ] },
+        { name: 'about', items: [ 'About' ] }
+      ];
+
+      CKEDITOR.config.height = "350px";
+
+
+      CKEDITOR.replace( 'editor1',
+        {
+          contentsCss : Book.bookUrl + '/OEBPS/app/controllers/css/stylesheet.css',
+
+          coreStyles_bold : { element : 'span', attributes : {'class': 'Bold'} },
+          coreStyles_italic : { element : 'span', attributes : {'class': 'Italic'} },
+
+          // More definitions follow.
+        });
+    }
+
 </script>

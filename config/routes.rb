@@ -1,4 +1,5 @@
 GepubTest::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get 'auth/:provider/callback', to: 'sessions#create' # 登入
   get 'auth/failure', to: redirect('/') # 有error
   get 'signout', to: 'sessions#destroy', as: 'signout' # 登出

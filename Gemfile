@@ -24,8 +24,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # for epub
-gem 'gepub'
-gem 'rubyzip'
+gem 'gepub' # generate .epub
+gem 'rubyzip' # unzip
+gem 'ckeditor' # Edit
 
 # gem 'epub-parser'
 
@@ -34,6 +35,7 @@ gem 'cocoon', '~> 1.2'
 
 # for image upload
 gem 'carrierwave'
+gem 'mini_magick'
 
 # for boostrap
 gem 'bootstrap-sass', '~> 3.2.0'

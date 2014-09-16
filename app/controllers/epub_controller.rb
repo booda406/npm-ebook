@@ -93,6 +93,7 @@ class EpubController < ApplicationController
 
 		  resources(:workdir => "#{Rails.root}/") {
 		    cover_image 'public/' + @@epub.index_image.url
+
 		    file 'app/controllers/css/stylesheet.css'
 		    glob 'app/controllers/fonts/*.otf'
  			@@epub.pages.each do |page|
