@@ -37,18 +37,9 @@
 
         </script>
     </head>
-    <div>
-    <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-    <% end %>
-  </div>
-
     <%= link_to "素材庫", image_library_path %>
     <%= link_to "下載Epub", ebook_path(@book.id) %>
-
+        <center><h2><%=@book.index_word%></h2></center>
         <div id="main">
           <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
           <div id="wrapper">
