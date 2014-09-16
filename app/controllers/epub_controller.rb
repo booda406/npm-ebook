@@ -1,9 +1,7 @@
 class EpubController < ApplicationController
 
 	def index
-		@word = params[:word] if params[:word].present?
-		@book = Book.last
-		render layout: false
+
 	end
 
 	def image_library

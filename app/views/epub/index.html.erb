@@ -5,81 +5,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <meta name="apple-mobile-web-app-capable" content="yes">
-  <%= stylesheet_link_tag    "show", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "show", "data-turbolinks-track" => true %>
-        
         <style type="text/css">
-
-          body {
-            background: #eee;
+          body.texture{
+            background: none repeat scroll 0 0 #23262b
           }
-
-          #wrapper {
-            background: #fff;
+          .login-container .middle-login{
+            top: 40%;
+            position: absolute;
+            left: 45%;
           }
-
-          #area {
-            -moz-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-            -webkit-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-            box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-          }
-
         </style>
-        
-         <script>
-            "use strict";
-            
-            var Book = ePub("/故宮/", {
-              spreads : true,
-              fixedLayout : false, //-- Will turn off pagination
-              version : 1,
-            });
+</head>
+<body class="texture">
 
-        </script>
-    </head>
-    <div>
-    <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-    <% end %>
-  </div>
+<div id="cl-wrapper" class="login-container">
 
-    <%= link_to "素材庫", image_library_path %>
-    <%= link_to "下載Epub", ebook_path(@book.id) %>
-
-        <div id="main">
-          <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
-          <div id="wrapper">
-            <div id="area"></div>
-          </div>
-          <div id="next" onclick="Book.nextPage();"class="arrow">›</div>
-          <select id="toc" onchange="gotopage()"></select>
-        </div>
-<script type="text/javascript">
-            Book.getToc().then(function(toc){
-
-              var $select = document.getElementById("toc"),
-                  docfrag = document.createDocumentFragment();
-
-              toc.forEach(function(chapter) {
-                var option = document.createElement("option");
-                option.textContent = chapter.label;
-                option.ref = chapter.href;
-
-                docfrag.appendChild(option);
-              });
-
-              $select.appendChild(docfrag);
-
-            });
-    function gotopage(){
-          console.log("hi")
-          var index = document.getElementById("toc").selectedIndex,
-              url = document.getElementById("toc").options[index].ref;
-          Book.goto("text/"+url);
-          return false;
-    }
-    Book.renderTo("area");
-</script>
+  <div class="middle-login" style="margin:0 auto">
+    <div class="block-flat">
+      <div class="header">              
+        <h3 class="text-center"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-lg" %></h3>
+      </div>
+    </div>
+    <div class="text-center out-links"><a href="#">&copy; 故宮旅遊札記</a></div>
+  </div> 
+  
+</div>
+</body>
