@@ -147,6 +147,12 @@ class EpubController < ApplicationController
 		render layout: false
 	end
 
+	def book_update
+		params[:editor1] = @body_content
+		params[:id] = @book_id
+		
+	end
+
 	def generate_ebook
 		@book = Book.find(params[:id]) || Book.last
 		# builder = GEPUB::Builder.new {
