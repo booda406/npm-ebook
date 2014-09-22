@@ -27,6 +27,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'gepub' # generate .epub
 gem 'rubyzip' # unzip
 gem 'ckeditor' # Edit
+gem 'nokogiri' # for xml parser
+gem 'fileutils' # for file cp
 
 # gem 'epub-parser'
 

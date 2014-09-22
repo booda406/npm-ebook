@@ -148,9 +148,30 @@ class EpubController < ApplicationController
 	end
 
 	def book_update
-		params[:editor1] = @body_content
-		params[:id] = @book_id
-		
+		#{"editor1"=>"<p>天氣:U know it</p>\r\n\r\n<p>心情:well... its hard to say</p>\r\n\r\n<p>朋友:Mm.......</p>\r\n",
+		# "chapter_path"=>"http://localhost:3000/故宮49/OEBPS/second.xhtml",
+		# "id"=>"49"}
+		@body_content = params[:editor1]
+		# render text: @body_content
+		@book_id = params[:id]
+		@file_path = "public" + params[:chapter_path]
+		new_doc = Nokogiri::HTML(@body_content)
+		new_doc.css('img').each do |img|
+			if img['src'].include? "http:"
+				img['src'] = "public" + img['src'].split("public")[1]
+			else
+				copy_with_path("public" + img['src'], @file_path.sub(/\/[^\/]*$/, '')+"/public"+img['src'])
+				img['src'] = "public" + img['src']
+			end
+			logger.debug "IMGGGG #{img['src']}"
+		end
+		logger.debug "FIIIIILE #{new_doc.at('body').inner_html}"
+		doc = Nokogiri::XML(File.open(@file_path))
+		# doc.at('body').content = @body_content
+		doc.css('body').first.inner_html = new_doc.at('body').inner_html
+		File.open(@file_path, 'w') {|f| f.write doc}
+		# logger.debug "File #{doc}"
+		redirect_to books_show_path(@book_id)
 	end
 
 	def generate_ebook
@@ -209,6 +230,11 @@ class EpubController < ApplicationController
 
 	def book_params
 		params.require(:book).permit(:index_word, :index_image, :second_weather, :second_mood, :second_friend, :together_photo, :creator, :last_image, pages_attributes: [ :id, :title, :word, :image, :_destroy ])
+	end
+
+	def copy_with_path(src, dst)
+	  FileUtils.mkdir_p(File.dirname(dst))
+	  FileUtils.cp(src, dst)
 	end
 
 end

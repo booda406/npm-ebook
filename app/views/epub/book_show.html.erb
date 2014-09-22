@@ -1,46 +1,68 @@
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>故宮測試</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>故宮測試</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <%= stylesheet_link_tag    "show", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "show", "data-turbolinks-track" => true %>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46309133-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <style type="text/css">
+
+    body {
+      background: #eee;
+    }
+
+    #wrapper {
+      background: #fff;
+    }
+
+    #area {
+      -moz-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
+      -webkit-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
+      box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
+    }
+
+  </style>
         
-        <style type="text/css">
-
-          body {
-            background: #eee;
-          }
-
-          #wrapper {
-            background: #fff;
-          }
-
-          #area {
-            -moz-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-            -webkit-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-            box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-          }
-
-        </style>
-        
-         <script>
-            "use strict";
-            // var Book = ePub("/moby-dick/", {
-            //   spreads : true,
-            //   fixedLayout : false, //-- Will turn off pagination
-            //   version : 1,
-            // });
-            
-            var Book = ePub("/故宮"+<%=params[:id]%>+"/", {
-              spreads : true,
-              fixedLayout : false, //-- Will turn off pagination
-              version : 1,
-            });
-        </script>
-    </head>
+  <script>
+    "use strict";
+    // var Book = ePub("/moby-dick/", {
+    //   spreads : true,
+    //   fixedLayout : false, //-- Will turn off pagination
+    //   version : 1,
+    // });
+    function epub_path(){
+      return "/故宮" + <%= params[:id] %> + "/";
+    }
+    function OEBPS_path(){
+      return epub_path() + "OEBPS/";
+    }
+    function image_path(){
+      return window.location.origin + OEBPS_path();
+    }
+    function add_chapter_path(){
+      $("#chapter_path").val(Book.currentChapter.absolute.replace(location.origin,""));
+    }
+    var Book = ePub(epub_path(), {
+      spreads: true,
+      fixedLayout: false, //-- Will turn off pagination
+      version: 1,
+    });
+  </script>
+  </head>
     <%= link_to "素材庫", image_library_path %>
     <%= link_to "下載Epub", ebook_path(@book.id) %>
         <center><h2><%=@book.index_word%></h2></center>
@@ -49,6 +71,7 @@
             <p>
               編輯內容:<br />
                 <textarea id="editor1" name="editor1"></textarea>
+                <input type="hidden" id="chapter_path" name="chapter_path">
             </p>
             <p>
               <input type="submit" value="儲存" />
@@ -57,13 +80,13 @@
           </form>
         </div>
          <div id="main">
-          <br/><button onclick="Edit_mode();">編輯此頁</button>
+          <br/><button onclick="edit_mode();">編輯此頁</button>
           <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
           <div id="wrapper">
             <div id="area"></div>
           </div>
           <div id="next" onclick="Book.nextPage();"class="arrow">›</div>
-          <select id="toc" onchange="gotopage()"></select>
+          <select id="toc" onchange="Book.goto_page();"></select>
         </div>
 <script type="text/javascript">
     Book.getToc().then(function(toc){
@@ -82,42 +105,64 @@
       $select.appendChild(docfrag);
 
     });
-    function gotopage(){
-          console.log("hi")
-          var index = document.getElementById("toc").selectedIndex,
-              url = document.getElementById("toc").options[index].ref;
-          Book.goto("text/"+url);
-          return false;
+    Book.goto_page = function(){
+      var index = document.getElementById("toc").selectedIndex,
+          url = document.getElementById("toc").options[index].ref;
+
+      Book.goto(url);
     }
+
     Book.renderTo("area");
 
-    function Edit_mode(){
+    function create_xmlhttp(){
+      var xmlhttp;
+      if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      
+      return xmlhttp;
+    }
+    function replace_image_paths(str){
+      xmlDoc = $.parseXML(str);
+      xml = $(xmlDoc);
+      xml.find("img").attr("src", function( i, src ) {
+        return image_path() + src;
+      });
+      xml = xml.find("body");
+      return (new XMLSerializer()).serializeToString(xml[0]);
+      // return $xml;1
+      // var images = $xml.find("img");
+      // console.log($(str));
+      // console.log(xml);
+    }
+    function edit_mode(){
       $('#editor_mode').show();
       $('#main').hide();
-      var xmlhttp;
-      if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp=new XMLHttpRequest();
+      add_chapter_path();
+      var xmlhttp = create_xmlhttp();
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+          str = xmlhttp.responseText;
+          str = replace_image_paths(str);
+          str = str.replace(/^.*?<body[^>]*>(.*?)<\/body>.*?$/i,"$1");
+          console.log(str);
+
+          // $('#editor1').innerHTML(str);
+          document.getElementById("editor1").innerHTML = str;
         }
-      else
-        {// code for IE6, IE5
-          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-          document.getElementById("editor1").innerHTML=xmlhttp.responseText;
-          // console.log(document.getElementById("editor1").innerHTML);
-          // console.log(xmlhttp);
-          }
       }
+      
       xmlhttp.open("GET",Book.currentChapter.absolute,true);
       // console.log(Book.currentChapter.absolute);
       xmlhttp.send();
 
 
       CKEDITOR.config.toolbar = [
+        { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', '-', 'Save', 'Preview', 'Print', '-', 'Templates' ] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
         { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
         '/',
