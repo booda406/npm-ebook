@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916144634) do
+ActiveRecord::Schema.define(version: 20140923034418) do
 
   create_table "books", force: true do |t|
     t.string   "index_word"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140916144634) do
     t.string   "last_image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|

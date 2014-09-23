@@ -1,5 +1,13 @@
 class EpubController < ApplicationController
 
+	def mybooks
+		if !@current_user.nil?
+			@books = Book.where(user_id: current_user.id)
+		else
+			@books = Book.all
+		end
+	end
+
 	def index
 
 	end
@@ -24,6 +32,9 @@ class EpubController < ApplicationController
 
 	def book_create
 		@book = Book.new(book_params)
+		if current_user?
+			@book.user_id = current_user.id			
+		end
 		@book.save
 		@@epub = @book
 		builder = GEPUB::Builder.new {

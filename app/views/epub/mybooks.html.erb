@@ -1,0 +1,20 @@
+<%= link_to "素材庫", image_library_path %>
+
+<div class="row">
+  <div class="col-sm-12">
+	
+	<% @books.each do |book| %>
+		<div class="col-md-3">
+		    <div class="block-flat">
+				<div class="header">
+					<%= book.index_word %>
+				</div>
+				<div class="content">
+					<%= link_to image_tag(book.index_image, :size => '200x200', :style => "display:block"), books_show_path(book.id) %>
+				</div>
+			</div>
+		</div>
+		
+	<% end %>
+  </div>
+</div>
