@@ -1,5 +1,7 @@
 class EpubController < ApplicationController
 
+	require "open-uri" # for download image via URL
+
 	def mybooks
 		if !@current_user.nil?
 			@books = Book.where(user_id: current_user.id)
@@ -115,8 +117,18 @@ class EpubController < ApplicationController
 		@file_path = "public" + params[:chapter_path]
 		new_doc = Nokogiri::HTML(@body_content)
 		new_doc.css('img').each do |img|
-			if img['src'].include? "http:"
-				img['src'] = "public" + img['src'].split("public")[1]
+			if img['src'].include? "http"
+				if img['src'].include? "public"
+					img['src'] = "public" + img['src'].split("public")[1]
+				else
+					open(img['src']) {|f|
+					   File.open("public/images/"+img['src'].split('/')[-1].split('?')[0],"wb") do |file|
+					     file.puts f.read
+					   end
+					}
+					copy_with_path("public/images/" + img['src'].split('/')[-1].split('?')[0], @file_path.sub(/\/[^\/]*$/, '')+"/public/images/"+img['src'].split('/')[-1].split('?')[0])
+				    img['src'] = "public/images/" + img['src'].split('/')[-1].split('?')[0]
+				end
 			else
 				copy_with_path("public" + img['src'], @file_path.sub(/\/[^\/]*$/, '')+"/public"+img['src'])
 				img['src'] = "public" + img['src']
