@@ -30,12 +30,6 @@
       background: #fff;
     }
 
-    #area {
-      -moz-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-      -webkit-box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-      box-shadow: inset 10px 0 20px rgba(0,0,0,.1);
-    }
-
   </style>
         
   <script>
@@ -76,19 +70,22 @@
                 <input type="hidden" id="chapter_path" name="chapter_path">
             </p>
             <p>
-              <input type="submit" value="儲存" />
-              <a href="#" onclick="location.reload()">取消</a>
+              <input type="submit" value="儲存" class="btn btn-primary" />
+              <a href="#" onclick="location.reload()" class="btn btn-default">取消</a>
             </p>
           </form>
         </div>
          <div id="main">
-          <br/><button onclick="edit_mode();">編輯此頁</button>
+          <button onclick="edit_mode();" class="btn btn-primary pull-right">編輯此頁</button>
           <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
+          <div id="divider"></div>
           <div id="wrapper">
             <div id="area"></div>
           </div>
           <div id="next" onclick="Book.nextPage();"class="arrow">›</div>
-          <select id="toc" onchange="Book.goto_page();"></select>
+          <div class="styled-select slate">
+            <select id="toc" onchange="Book.goto_page();"></select>
+          </div>
         </div>
 <script type="text/javascript">
     Book.getToc().then(function(toc){

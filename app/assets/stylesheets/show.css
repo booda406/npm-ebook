@@ -1,3 +1,5 @@
  /*
  *= require_directory ./epub
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";

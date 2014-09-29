@@ -1,5 +1,5 @@
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 #main {
@@ -12,9 +12,27 @@ body {
   width: 80%;
   height: 80%;
   margin: 5% auto;
+  padding-bottom: 50px;
   max-width: 1250px;
+  box-shadow: 12px 0 15px -4px rgba(0,0,0,.1), -12px 0 8px -4px rgba(0,0,0,.1);
+  padding: 0 10px;
 }
 
+@media screen and (min-width: 1000px){
+  #divider{
+    border-right: 1px solid #000;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 1);
+    display: block;
+    height: 80%;
+    left: 50%;
+    margin-left: -1px;
+    opacity: 0.15;
+    position: absolute;
+    top: 10%;
+    width: 1px;
+    z-index: 1;
+  }
+}
 #area iframe {
   border: none;
 }
@@ -61,4 +79,35 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+.styled-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
 }

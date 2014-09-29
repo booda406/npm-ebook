@@ -17,5 +17,6 @@
 	<%= f.input :creator, input_html: { :class => 'form-control' } %>
 	<%= f.input :last_image, input_html: { :class => 'form-control' } %>
 
-	<%= f.submit %>
+	<%= f.submit "儲存" , class: 'btn btn-primary', style: "margin-top:10px" %>
+	<%= link_to "取消", mybooks_path, class: "btn btn-default pull-right", style: "margin-top:10px" %>
 <% end %>
