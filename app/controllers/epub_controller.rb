@@ -11,7 +11,9 @@ class EpubController < ApplicationController
 	end
 
 	def index
-
+		if !@current_user?
+			redirect_to mybooks_path
+		end
 	end
 
 	def image_library
