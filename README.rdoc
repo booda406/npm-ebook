@@ -1,19 +1,19 @@
 == 專題計劃ebook
 ---
-	{Demo app}[http://npm-ebook.herokuapp.com]
-	* Create
-	* Edit
-	* Download
-	* Preview
+{Demo app}[http://npm-ebook.herokuapp.com]
+* Create
+* Edit
+* Download
+* Preview
 ---
 == 專題筆記：
-  1. 利用FB login
-  1. 快速方便產出電子書
-  1. 基本修改電子書內容
-  1. 電子書預覽(瀏覽器Cache問題導致預覽更新緩慢)
-  1. 電子書產生並下載
-  1. 個人書城
+1. 利用FB login
+1. 快速方便產出電子書
+1. 基本修改電子書內容
+1. 電子書預覽(瀏覽器Cache問題導致預覽更新緩慢)
+1. 電子書產生並下載
+1. 個人書城
 
-  [EPUB版本]
-    支援EPUB二
+[EPUB版本]
+  支援EPUB二
 	EPUB二只支援到xhtml 1.1 很多tag並不支援
