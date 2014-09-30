@@ -11,7 +11,7 @@ class EpubController < ApplicationController
 	end
 
 	def index
-		if !@current_user?
+		if !@current_user.nil?
 			redirect_to mybooks_path
 		end
 	end
